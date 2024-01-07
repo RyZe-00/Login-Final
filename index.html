@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <meta name="google-signin-client_id" content="156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com">
+    
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+    <script src="script.js"></script>
+    
+</head>
+<body>
+    <div class="Inicio-de-sesion">
+        <div class="encabezado">
+            <header>Bienvenido</header>
+            <p>Nos alegra tenerte con nosotros nuevamente!</p>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input-field" id="correo" autocomplete="off" required>
+            <label for="correo">Correo o Telefono</label>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" id="password" autocomplete="off" required>
+            <label for="password">Contraseña</label>
+        </div>
+        <div class="olvidar">
+            <section>
+                <input type="checkbox" id="check">
+                <label for="check">Recordarme</label>
+            </section>
+            <section>
+                <a href="#" class="recuperar">Recuperar Contraseña</a>
+            </section>
+        </div>
+        <div class="input-box">
+            <input type="submit" class="input-submit" value="Iniciar Sesion">
+        </div>
+        <div class="division">
+            <hr>
+            <p class="O">O</p>
+        </div>
+        <div class="inicio-social">
+
+            <div id="g_id_onload"
+                data-client_id="156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com"
+                data-context="use"
+                data-ux_mode="popup"
+                data-callback="handleCredentialResponse"
+                data-nonce=""
+                data-itp_support="true">
+            </div>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="signin_with"
+                data-size="large"
+                data-locale="es"
+                data-logo_alignment="center"
+                data-width="300"
+                data-height="50">
+            </div>
+
+            <div id="user-info-google"></div>
+
+            <button class="input-facebook" onclick="customFacebookLogin()">
+                <img src="facebook.png" alt="">
+                <div id="profile"></div>
+            </button>
+
+
+        </div>
+        
+        <div id="signinDiv"></div>
+        <div class="iniciar-sesion">
+            <p>No tienes una cuenta? <a href="#">Crear Cuenta</a></p>
+        </div>
+        
+    </div>
+</body>
+</html>
