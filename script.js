@@ -44,19 +44,23 @@ function customFacebookLogin() {
       console.log("Bienvenido!  Gracias por tu informacion.... ");
       FB.api("/me", { fields: "name, email" }, function (response) {
         if (response.email) {
-          alert(
-            "'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " +
-              response.name +
-              ". \nTu email es " +
-              response.email
-          );
+          Swal.fire({
+            icon: "info",
+            title: "Información de Usuario",
+            html: `<p>Nombre: ${response.name}</p>
+                   <p>Email: ${response.email}</p>`,
+          }).then((result) => {
+            
+          });
         } else {
-          alert(
-            "'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " +
-              response.name +
-              ". \nTu email es " +
-              response.email
-          );
+          Swal.fire({
+            icon: "info",
+            title: "Información de Usuario",
+            html: `<p>Nombre: ${response.name}</p>
+                   <p>Email: ${response.email}</p>`,
+          }).then((result) => {
+            
+          });
           console.log("Correo electrónico no disponible");
         }
       });
@@ -140,5 +144,25 @@ document.addEventListener("DOMContentLoaded", function () {
   botonIniciarSesion.addEventListener("click", iniciarSesionLocal);
 });
 
-//EASTER EGG
+//INFO
+function mostrarMensajeRecuperar() {
+  Swal.fire({
+      icon: 'info',
+      title: 'Recuperar Contraseña',
+      text: 'Correo: usuario@ejemplo.com | Contraseña: contraseña',
+  });
+}
 
+
+function mostrarOcultarContrasena() {
+  var passwordInput = document.getElementById('password');
+  var eyeIcon = document.getElementById('eye-icon');
+
+  if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.className = 'fas fa-eye-slash'; // Cambia a la clase de ojo cerrado
+  } else {
+      passwordInput.type = 'password';
+      eyeIcon.className = 'fas fa-eye'; // Sigue utilizando la clase de ojo abierto
+  }
+}

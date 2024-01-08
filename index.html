@@ -13,6 +13,8 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
     <script src="script.js"></script>
     
@@ -30,6 +32,9 @@
         <div class="input-box">
             <input type="password" class="input-field" id="password" autocomplete="off" required>
             <label for="password">Contraseña</label>
+            <button class="show-hide-password" onclick="mostrarOcultarContrasena()">
+                <i id="eye-icon" class="fas fa-eye"></i>
+            </button>
         </div>
         <div class="olvidar">
             <section>
@@ -37,10 +42,10 @@
                 <label for="check">Recordarme</label>
             </section>
             <section>
-                <a href="#" class="recuperar">Recuperar Contraseña</a>
+                <a href="#" class="recuperar" onclick="mostrarMensajeRecuperar()">Recuperar Contraseña</a>
             </section>
         </div>
-        <button class="input-box" onclick="iniciarSesionLocal()">
+        <button class="input-box-login" onclick="iniciarSesionLocal()">
             <input type="submit" class="input-submit" value="Iniciar Sesion">
         </button>
         <div class="division">
