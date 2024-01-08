@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    background-image: url('fondo.jpg');
+    background-size: 100% 100%;
+}
+
+#snakeGameSection {
+    display: block;
+}
+
+#score {
+    margin: 0;
+    padding: 10px;
+    background-color: #fff; /* Fondo blanco sólido para el puntaje */
+    border-radius: 5px;
+}
