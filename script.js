@@ -122,7 +122,7 @@ function iniciarSesionLocal() {
       title: "Inicio de Sesión Exitoso",
       text: "Bienvenido",
     }).then((result) => {
-      window.location.href = 'Game/snake.html';
+      window.location.href = 'Game/Menu/menu.html';
       // Aquí puedes redirigir al usuario a otra página
       //window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran'
     });

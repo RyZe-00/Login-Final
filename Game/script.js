@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 resetGame();
             } else {
                 // Aquí puedes redirigir al usuario o hacer cualquier otra acción al salir del juego
-                window.location.href = '../index.html';
+                window.location.href = '../Game/Menu/menu.html';
             }
         });
         
@@ -161,5 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     gameLoop();
+    
 });
 

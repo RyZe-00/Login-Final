@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
-    background-image: url('fondo.jpg');
+    background-image: url('../fondo.jpg');
     background-size: 100% 100%;
 }
 
@@ -16,6 +16,10 @@ body {
 #score {
     margin: 0;
     padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    border: none;
     background-color: #fff; /* Fondo blanco sólido para el puntaje */
     border-radius: 5px;
 }
