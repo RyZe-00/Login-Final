@@ -82,9 +82,7 @@ function handleCredentialResponse(response) {
     Swal.fire({
       icon: "info",
       title: "Información de Usuario",
-      html: `<p>ID de usuario: ${credential.id}</p>
-             <p>Nombre: ${credential.name}</p>
-             <p>Email: ${credential.email}</p>`,
+      text: "Sesion Iniciada",
     }).then((result) => {
       // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
     });
@@ -94,7 +92,6 @@ function handleCredentialResponse(response) {
     console.log("Nombre:", credential.name);
     console.log("Email:", credential.email);
 
-    window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran";
   }
 }
 
