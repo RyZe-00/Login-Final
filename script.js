@@ -80,8 +80,8 @@ function handleCredentialResponse(response) {
     var credential = response.credential;
 
     Swal.fire({
-      icon: "info",
-      title: "Información de Usuario",
+      icon: "ccess",
+      title: "Inicio de Sesion Exitoso",
       text: "Sesion Iniciada",
     }).then((result) => {
       // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
