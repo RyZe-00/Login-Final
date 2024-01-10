@@ -76,22 +76,14 @@ FB.api("/me", function (response) {
 
 //GOOGLE
 function handleCredentialResponse(response) {
-  const responsePayload = decodeJwtResponse(response.credential);
-
   if (response.credential) {
     var credential = response.credential;
 
     Swal.fire({
-      icon: "success",
+      icon: "ccess",
       title: "Inicio de Sesion Exitoso",
       text: "Sesion Iniciada",
     }).then((result) => {
-      console.log("ID: " + responsePayload.sub);
-      console.log('Nombre completo: ' + responsePayload.name);
-      console.log('Nombre dado: ' + responsePayload.given_name);
-      console.log('Apellido: ' + responsePayload.family_name);
-      console.log("URL de la imagen: " + responsePayload.picture);
-      console.log("Correo electrónico: " + responsePayload.email);
       // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
     });
 
@@ -100,20 +92,8 @@ function handleCredentialResponse(response) {
     console.log("Nombre:", credential.name);
     console.log("Email:", credential.email);
 
-    // Aquí es donde se produce el error
-    var people = response.people;
-    console.log("Información de la gente:", people);
   }
 }
-
-var people = response.people ? response.people : null;
-
-if (people) {
-  console.log("Información de la gente:", people);
-} else {
-  console.log("La propiedad 'people' no está definida en la respuesta.");
-}
-
 
 // Inicializa Google Identity Services y configura la función de devolución de llamada
 google.accounts.id.initialize({
