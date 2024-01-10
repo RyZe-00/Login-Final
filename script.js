@@ -79,19 +79,26 @@ function handleCredentialResponse(response) {
   if (response.credential) {
     var credential = response.credential;
 
-    Swal.fire({
-      icon: "ccess",
-      title: "Inicio de Sesion Exitoso",
-      text: "Sesion Iniciada",
-    }).then((result) => {
-      // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
+    // Obtén la información del usuario utilizando la API de Google People
+    gapi.client.people.people.get({
+      resourceName: 'people/me',
+      personFields: 'emailAddresses,names',
+    }).then((res) => {
+      var user = res.result;
+      
+      Swal.fire({
+        icon: "success",
+        title: "Inicio de Sesión Exitoso",
+        text: "Sesión Iniciada",
+      }).then((result) => {
+        // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
+      });
+
+      // Maneja la información del usuario
+      console.log("ID de usuario:", user.resourceName);
+      console.log("Nombre:", user.names[0].displayName);
+      console.log("Email:", user.emailAddresses[0].value);
     });
-
-    // Maneja la información de la credencial como desees
-    console.log("ID de usuario:", credential.id);
-    console.log("Nombre:", credential.name);
-    console.log("Email:", credential.email);
-
   }
 }
 
