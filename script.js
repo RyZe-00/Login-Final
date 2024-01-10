@@ -78,13 +78,6 @@ FB.api("/me", function (response) {
 function handleCredentialResponse(response) {
   const responsePayload = decodeJwtResponse(response.credential);
 
-  console.log("ID: " + responsePayload.sub);
-  console.log('Nombre completo: ' + responsePayload.name);
-  console.log('Nombre dado: ' + responsePayload.given_name);
-  console.log('Apellido: ' + responsePayload.family_name);
-  console.log("URL de la imagen: " + responsePayload.picture);
-  console.log("Correo electrónico: " + responsePayload.email);
-  
   if (response.credential) {
     var credential = response.credential;
 
@@ -93,6 +86,12 @@ function handleCredentialResponse(response) {
       title: "Inicio de Sesion Exitoso",
       text: "Sesion Iniciada",
     }).then((result) => {
+      console.log("ID: " + responsePayload.sub);
+      console.log('Nombre completo: ' + responsePayload.name);
+      console.log('Nombre dado: ' + responsePayload.given_name);
+      console.log('Apellido: ' + responsePayload.family_name);
+      console.log("URL de la imagen: " + responsePayload.picture);
+      console.log("Correo electrónico: " + responsePayload.email);
       // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
     });
 
