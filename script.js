@@ -79,28 +79,33 @@ function handleCredentialResponse(response) {
   if (response.credential) {
     var credential = response.credential;
 
-    // Obtén la información del usuario utilizando la API de Google People
-    gapi.client.people.people.get({
-      resourceName: 'people/me',
-      personFields: 'emailAddresses,names',
-    }).then((res) => {
-      var user = res.result;
-      
-      Swal.fire({
-        icon: "success",
-        title: "Inicio de Sesión Exitoso",
-        text: "Sesión Iniciada",
-      }).then((result) => {
-        // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
-      });
-
-      // Maneja la información del usuario
-      console.log("ID de usuario:", user.resourceName);
-      console.log("Nombre:", user.names[0].displayName);
-      console.log("Email:", user.emailAddresses[0].value);
+    Swal.fire({
+      icon: "success",
+      title: "Inicio de Sesion Exitoso",
+      text: "Sesion Iniciada",
+    }).then((result) => {
+      // Puedes realizar acciones adicionales después de que el usuario interactúe con la ventana emergente
     });
+
+    // Maneja la información de la credencial como desees
+    console.log("ID de usuario:", credential.id);
+    console.log("Nombre:", credential.name);
+    console.log("Email:", credential.email);
+
+    // Aquí es donde se produce el error
+    var people = response.people;
+    console.log("Información de la gente:", people);
   }
 }
+
+var people = response.people ? response.people : null;
+
+if (people) {
+  console.log("Información de la gente:", people);
+} else {
+  console.log("La propiedad 'people' no está definida en la respuesta.");
+}
+
 
 // Inicializa Google Identity Services y configura la función de devolución de llamada
 google.accounts.id.initialize({
